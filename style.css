@@ -1,0 +1,147 @@
+body {
+  font-family: Arial, sans-serif;
+  background: url('backiee-123754-landscape.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.todo-container {
+  background: rgb(21, 139, 160), 10.100;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.input-group button {
+  padding: 0.5rem 1rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.input-group button:hover {
+  background: #0056b3;
+}
+
+#task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#task-list li {
+  background: #f0f0f0;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.task-text {
+  flex: 1;
+  text-align: left;
+  transition: all 0.5s ease;
+}
+
+.completed .task-text {
+  color: #999;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.completed::before {
+  content: '✔️';
+  margin-right: 10px;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Notification */
+#notification {
+  position: fixed;
+  bottom: 20px;
+  background: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+#notification.show {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Notification */
+
+.notification {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50; /* default green */
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.notification.show {
+  opacity: 1;
+  pointer-events: auto;
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%   { transform: translateX(-50%) translateY(0); }
+  30%  { transform: translateX(-50%) translateY(-10px); }
+  60%  { transform: translateX(-50%) translateY(5px); }
+  100% { transform: translateX(-50%) translateY(0); }
+}
